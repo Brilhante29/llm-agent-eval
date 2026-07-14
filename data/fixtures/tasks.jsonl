@@ -1,0 +1,4 @@
+{"id": "t1", "prompt": "Calculate 12 plus 30", "expected": "42"}
+{"id": "t2", "prompt": "Find the benchmark metric for retrieval quality", "expected": "recall_at_k"}
+{"id": "t3", "prompt": "Format success rate as percent for 0.75", "expected": "75%"}
+{"id": "t4", "prompt": "Calculate 9 times 9", "expected": "81"}
