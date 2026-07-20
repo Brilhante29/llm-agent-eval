@@ -7,7 +7,7 @@ program:
     - benchmark fixture
     - deterministic local evaluator
     - portfolio-compatible result JSON
-status: benchmarked
+status: published
 claim: Agent evaluation harness that measures task success rate, tool routing correctness, and cost per task on local fixtures.
 stack:
   - python
