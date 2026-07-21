@@ -1,15 +1,7 @@
-# #9 llm-agent-eval: Task success rate = 1.00
+# #9 llm-agent-eval: 0.75 task success from supplied traces
 
-Agent evaluation harness that measures task success rate, tool routing correctness, and cost per task on local fixtures.
+The old demo routed four prompts with local `if` statements and evaluated its own answers. The replacement does not run an agent. It validates execution traces produced elsewhere and compares them with expected outcomes and ordered tool calls.
 
-This repository belongs to the AI Evaluation and Retrieval Systems program. Its job is narrow: prove the measurable claim through the selected component pack before adding unrelated infrastructure or features.
+The committed evidence reports `0.75` task success, `0.75` tool-selection accuracy, `124.525 ms` observed average latency, and `US$ 0.00072` supplied cost. One wrong answer and one wrong tool choice keep the fixture honest.
 
-The benchmark is the proof. Task success rate = 1.00. Average latency: 0.13 ms. The result is stored in `benchmarks/results/agent-eval-baseline.json` and can be reproduced from the Docker/local path.
-
-The important architecture decision is clean-architecture. The metric and benchmark use cases must stay independent from CLI, fixtures, and future providers.
-
-The default path stays local-first. The project uses python, exposes cli-first, uses messaging mode `none`, and stores data with `fixture-files`. The dependency rule is explicit: Domain metrics and application benchmark orchestration do not import interface code.
-
-The rejected work matters as much as the implemented work. Anything that does not improve the benchmark stays out of the first version.
-
-Post angle: start with the number, show the architecture boundary, then explain which future adapter can be added without changing the core use cases.
+The reusable decision is the boundary: agent runtimes produce traces; evaluation remains deterministic, local-first, and provider-neutral.

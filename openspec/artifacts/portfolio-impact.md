@@ -1,27 +1,5 @@
 # Portfolio Impact: llm-agent-eval
 
-## Program
+This repository contributes a provider-neutral execution-trace evaluation contract to AI Evaluation and Retrieval Systems. It can consume traces from a future local graph or cloud provider, but no cross-repository integration is claimed yet.
 
-- Program id: `ai-evaluation-retrieval`
-- Program name: AI Evaluation and Retrieval Systems
-- Component pack: `ai-evaluation-retrieval`
-
-## System Story
-
-Adds task-level agent evaluation to the platform after answer and retrieval metrics.
-
-This repository is not a standalone demo. It is one part of the AI Evaluation and Retrieval Systems system and should produce reusable fixtures, benchmark patterns, and decisions for later repositories.
-
-## Proficiency Signal
-
-- Primary profile: `python`
-- Stack profile: `python`
-- Stack:
-- python
-- deterministic-agents
-- unittest
-- docker
-
-## Post Angle
-
-Open with Task success rate = 1.00, then explain why the architecture and local-first path make the result reproducible.
+Portfolio proof: task success `0.75`, tool-selection accuracy `0.75`, observed average latency `124.525 ms`, and supplied total cost `US$ 0.00072` on four committed traces.

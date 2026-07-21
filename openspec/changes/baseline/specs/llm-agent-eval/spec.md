@@ -1,30 +1,36 @@
 # llm-agent-eval Specification
 
-## Purpose
+## ADDED Requirements
 
-Agent evaluation harness that measures task success rate, tool routing correctness, and cost per task on local fixtures.
+### Requirement: supplied trace evaluation
 
-## Requirements
+The system SHALL evaluate supplied traces and SHALL NOT implement an agent or router as the subject under test.
 
-### Requirement: reproducible portfolio proof
+#### Scenario: complete trace set
 
-The system SHALL expose a local-first path that proves the primary benchmark
-declared in `project.yaml` without paid credentials.
+- GIVEN one expected outcome and ordered tool-call list per task
+- AND exactly one valid trace per task
+- WHEN evaluation runs
+- THEN task success and tool-selection accuracy are reported independently
+- AND latency and cost are aggregated from observed trace fields.
 
-#### Scenario: default verification
+### Requirement: fail-closed trace validation
 
-- GIVEN the repository is checked out with its committed fixtures
-- WHEN the documented Docker or local benchmark command runs
-- THEN a JSON result is written under `benchmarks/results/`
-- AND the README reports the same measured number
+The system SHALL reject malformed records, duplicate IDs, missing traces, and unknown traces without writing a benchmark result.
 
-### Requirement: replaceable integrations
+#### Scenario: incomplete trace set
 
-The system SHALL keep external providers behind ports or adapters whenever a
-provider is not part of the core claim.
+- GIVEN a task without one matching trace
+- WHEN evaluation runs
+- THEN the command exits with a validation error
+- AND no partial metric is accepted.
 
-#### Scenario: adapter substitution
+### Requirement: shared benchmark evidence
 
-- GIVEN a local adapter and a future real-provider adapter implement the same port
-- WHEN either adapter is selected by configuration
-- THEN the application use cases keep the same observable contract
+A successful run SHALL emit the required shared benchmark fields plus samples, summary, environment, and per-task details.
+
+#### Scenario: valid evidence output
+
+- GIVEN a complete valid task and trace set
+- WHEN evaluation succeeds
+- THEN the result includes `project`, `metric`, `value`, `unit`, `timestamp`, and `command`.

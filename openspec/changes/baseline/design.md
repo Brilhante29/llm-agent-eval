@@ -1,28 +1,22 @@
-# Change Design: baseline
+# Change Design: honest trace evaluation
 
 ## Decision
 
-- Architecture: clean-architecture
-- Stack: python
-- API style: cli-first
-- Messaging: none
-- Cloud mode: local-first; real providers stay behind adapters.
+Use a functional core with JSONL file adapters and a CLI shell. Task specs and traces are provider-neutral evidence. Validation runs before scoring or output.
 
 ## Boundaries
 
-- Domain and use cases define behavior.
-- Infrastructure implements ports.
-- Interfaces expose the contract and benchmark command.
+- Trace producers execute agents and record telemetry.
+- The evaluator validates and scores supplied evidence.
+- The CLI reads paths, reports errors, and writes the shared result.
 
-## Engineering Rules
+## Principles
 
-- Decouple policy from mechanism.
-- Apply SRP, OCP, LSP, ISP, and DIP at the boundaries that matter.
-- Prefer KISS and YAGNI over speculative abstractions.
-- Keep replacement adapters behaviorally compatible with the same port (LSP).
-- Test use cases without HTTP, cloud SDKs, brokers, or UI.
+SRP separates production from evaluation. DIP points the evaluator at a stable trace contract. KISS keeps the baseline standard-library only. LSP requires future trace producers to preserve the same fields and units.
 
-## Rejected Alternatives
+## Rejected
 
-Record the architecture, library, transport, broker, or cloud alternatives
-that were considered and why they do not improve this claim.
+- A rule router presented as an agent.
+- Provider execution inside the benchmark.
+- Estimated latency or cost when observed fields are absent.
+- Partial evaluation of missing or unknown task IDs.

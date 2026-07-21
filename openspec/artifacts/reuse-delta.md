@@ -1,15 +1,9 @@
 # Reuse Delta: llm-agent-eval
 
-## Reusable Discoveries
+| Candidate | Decision | Reason |
+|---|---|---|
+| Provider-neutral task/trace schema | backlog for kit | Agent evaluators need one stable evidence boundary. |
+| Fail-closed JSONL/cardinality validator | backlog for kit | The same gate applies to RAG, prompt, and agent datasets. |
+| Fixture content | repo-local | Expected outcomes and traces are project evidence, not kit policy. |
 
-| Candidate | Decision | Reason | Follow-up |
-|---|---|---|---|
-| generated OpenSpec-style plan | patch-now | Repeated project planning should not be recreated by hand. | Keep `tools/plan-project.ps1` in the kit. |
-| article voice check | patch-now | Posts should sound consistent with README/SDD evidence. | Use `voice-check.md` before publishing articles. |
-| external repo patterns | guarded-use | External repositories may improve organization and benchmark design. | Record reference and update kit before spreading the pattern. |
-
-## Final Gate
-
-- [x] Reuse improvement considered.
-- [x] Local skills remain primary.
-- [x] External references stay attributed and problem-driven.
+No project-specific evaluator code should move into the kit until a second consumer proves the abstraction.

@@ -1,18 +1,18 @@
 # Benchmark Proof: llm-agent-eval
 
-## Primary Metric
-
 - Metric: `task_success_rate`
-- Unit: `ratio`
-- Result: Task success rate = 1.00
-- Result path: `benchmarks/results/agent-eval-baseline.json`
+- Value: `0.75`
+- Tool-selection accuracy: `0.75`
+- Observed average latency: `124.525 ms`
+- Observed p95 latency: `231.7 ms`
+- Supplied total cost: `US$ 0.00072`
+- Samples: `4`
+- Result: `benchmarks/results/agent-eval-baseline.json`
 
-## Command
+Command:
 
-    python -m llm_agent_eval benchmark --output benchmarks/results/agent-eval-baseline.json
+```powershell
+python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json
+```
 
-## Evidence
-
-Average latency: 0.13 ms.
-
-The README/post number must come from the committed benchmark JSON, not from manual text.
+The telemetry is supplied evidence. The evaluator does not execute an agent or measure provider billing.

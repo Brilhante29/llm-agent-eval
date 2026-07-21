@@ -1,33 +1,85 @@
 {
   "project": "llm-agent-eval",
-  "primary_metric": "task_success_rate",
-  "task_success_rate": 1.0,
-  "cost_per_task_usd": 0.0,
-  "avg_latency_ms": 0.1286,
+  "metric": "task_success_rate",
+  "value": 0.75,
+  "unit": "ratio",
+  "timestamp": "2026-07-21T18:31:38.570202+00:00",
+  "command": "python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json",
+  "repeat": 4,
+  "samples": [
+    1.0,
+    1.0,
+    0.0,
+    1.0
+  ],
+  "summary": {
+    "task_count": 4,
+    "task_success_rate": 0.75,
+    "tool_selection_accuracy": 0.75,
+    "average_latency_ms": 124.525,
+    "p95_latency_ms": 231.7,
+    "total_cost_usd": 0.00072,
+    "average_cost_usd": 0.00018,
+    "malformed_trace_count": 0
+  },
+  "environment": {
+    "runtime": "python-3.10.11",
+    "mode": "offline-supplied-trace-evaluation",
+    "tasks_source": "data/fixtures/tasks.jsonl",
+    "traces_source": "data/fixtures/traces.jsonl"
+  },
   "tasks": [
     {
-      "id": "t1",
-      "tool": "calculator",
-      "answer": "42",
-      "success": true
+      "task_id": "t1",
+      "outcome_success": true,
+      "tool_selection_success": true,
+      "expected_tool_calls": [
+        "calculator"
+      ],
+      "observed_tool_calls": [
+        "calculator"
+      ],
+      "latency_ms": 84.2,
+      "cost_usd": 0.00012
     },
     {
-      "id": "t2",
-      "tool": "retriever",
-      "answer": "recall_at_k",
-      "success": true
+      "task_id": "t2",
+      "outcome_success": true,
+      "tool_selection_success": false,
+      "expected_tool_calls": [
+        "retriever"
+      ],
+      "observed_tool_calls": [
+        "search"
+      ],
+      "latency_ms": 231.7,
+      "cost_usd": 0.00031
     },
     {
-      "id": "t3",
-      "tool": "formatter",
-      "answer": "75%",
-      "success": true
+      "task_id": "t3",
+      "outcome_success": false,
+      "tool_selection_success": true,
+      "expected_tool_calls": [
+        "formatter"
+      ],
+      "observed_tool_calls": [
+        "formatter"
+      ],
+      "latency_ms": 102.4,
+      "cost_usd": 0.00018
     },
     {
-      "id": "t4",
-      "tool": "calculator",
-      "answer": "81",
-      "success": true
+      "task_id": "t4",
+      "outcome_success": true,
+      "tool_selection_success": true,
+      "expected_tool_calls": [
+        "calculator"
+      ],
+      "observed_tool_calls": [
+        "calculator"
+      ],
+      "latency_ms": 79.8,
+      "cost_usd": 0.00011
     }
   ]
 }

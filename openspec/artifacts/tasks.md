@@ -1,23 +1,9 @@
 # Tasks: llm-agent-eval
 
-## Planning
-
-- [x] Read `project.yaml`.
-- [x] Select component pack `ai-evaluation-retrieval`.
-- [x] Generate OpenSpec-style artifacts.
-- [x] Generate article draft.
-- [x] Compare article voice against existing docs.
-
-## Implementation
-
-- [x] Implement the measurable claim without breaking the recorded architecture boundary.
-- [x] Keep local skills and `.portfolio/` as primary.
-- [x] Record external references in `REFERENCES.md`.
-- [x] Commit benchmark JSON and the matching README number.
-
-## Publication
-
-- [ ] Validate project.
-- [ ] Confirm published CI is green.
-- [ ] Confirm article uses committed benchmark result.
-- [ ] Confirm `voice-check.md` verdict is aligned or intentionally overridden.
+- [x] Replace the fixture router with supplied-trace evaluation.
+- [x] Add fail-closed validation and behavior tests.
+- [x] Commit a shared-contract benchmark result.
+- [x] Align README, SDD, OpenSpec, and `project.yaml`.
+- [x] Verify Docker locally.
+- [x] Strict OpenSpec delta validation passes.
+- [ ] Confirm remote CI and publication evidence.

@@ -1,0 +1,4 @@
+{"task_id":"t1","output":"42","tool_calls":[{"name":"calculator"}],"latency_ms":84.2,"cost_usd":0.00012}
+{"task_id":"t2","output":"recall_at_k","tool_calls":[{"name":"search"}],"latency_ms":231.7,"cost_usd":0.00031}
+{"task_id":"t3","output":"0.75","tool_calls":[{"name":"formatter"}],"latency_ms":102.4,"cost_usd":0.00018}
+{"task_id":"t4","output":"81","tool_calls":[{"name":"calculator"}],"latency_ms":79.8,"cost_usd":0.00011}
