@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "llm-agent-eval"
 version = "0.1.0"
-description = "Local-first agent task evaluation with deterministic tools and success-rate metrics."
+description = "Local-first evaluation of supplied agent traces, expected outcomes, tool calls, latency, and cost."
 requires-python = ">=3.10"
 dependencies = []
 
