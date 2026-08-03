@@ -6,7 +6,7 @@
 - [x] Four unit tests and the project validator pass.
 - [x] Validation dependencies and Python base image are pinned.
 - [x] Reuse improvement review is complete.
-- [ ] V2 publication artifact generated from a clean source commit.
-- [ ] Remote CI verified on the exact publication SHA.
+- [x] V2 publication artifact generated from source commit `4f4064cc8d1b18b5a16baf58003f99b3c9e53ecb`.
+- [x] Source gate verified by GitHub Actions run `30859174373`; the publication commit must pass again on its exact SHA.
 
-Status remains `benchmarked` until V2 provenance and exact-head CI pass.
+Status is `published` with committed V2 evidence; exact-head publication CI is recorded centrally after the push.

@@ -10,5 +10,5 @@
 - [x] Align README, SDD, OpenSpec, and project status.
 - [x] Verify the Docker build and container command.
 - [x] Strict OpenSpec delta validation passes.
-- [ ] Generate V2 from the clean source commit.
-- [ ] Confirm exact-head CI after publication.
+- [x] Generate V2 from the clean source commit.
+- [x] Source gate passed in run `30859174373`; require the publication commit to pass on its exact SHA.

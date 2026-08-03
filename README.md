@@ -47,7 +47,7 @@ docker build -t llm-agent-eval .
 docker run --rm llm-agent-eval
 ```
 
-The result follows `.portfolio/contracts/benchmark-result.schema.json` and is committed at `benchmarks/results/agent-eval-baseline.json`. One process execution is reported as `repeat = 1`; the four evaluated tasks are reported separately as `measured_iterations = 4`.
+Publication evidence is committed at `benchmarks/publication/agent-eval-baseline-v2.json`; raw execution remains at `benchmarks/results/agent-eval-baseline.json`. One process execution is reported as `repeat = 1`; the four evaluated tasks are reported separately as `measured_iterations = 4`.
 
 ## Scope
 

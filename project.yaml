@@ -7,7 +7,7 @@ program:
     - execution trace contract
     - strict local evaluator
     - portfolio-compatible benchmark result
-status: benchmarked
+status: published
 claim: Offline harness that scores supplied agent traces against expected outcomes and tool calls while aggregating observed latency and cost.
 stack:
   - python
@@ -60,7 +60,7 @@ benchmark:
   primary_metric: task_success_rate
   unit: ratio
   command: python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json
-  result_path: benchmarks/results/agent-eval-baseline.json
+  result_path: benchmarks/publication/agent-eval-baseline-v2.json
 release:
   docker: Dockerfile
   no_secret_default_path: true

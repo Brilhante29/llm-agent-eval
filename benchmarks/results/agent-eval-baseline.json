@@ -3,7 +3,7 @@
   "metric": "task_success_rate",
   "value": 0.75,
   "unit": "ratio",
-  "timestamp": "2026-08-03T22:28:35.080301Z",
+  "timestamp": "2026-08-03T22:35:42.115312Z",
   "command": "python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json",
   "repeat": 1,
   "measured_iterations": 4,

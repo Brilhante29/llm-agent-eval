@@ -1,0 +1,62 @@
+{
+  "benchmark_id": "offline-agent-trace-eval-v1",
+  "comparability_key": "llm-agent-eval:task-success:offline-traces-v1:4-tasks",
+  "environment": {
+    "architecture": "amd64",
+    "hardware_class": "local-docker-desktop",
+    "runtime": "python-3.12.13-slim"
+  },
+  "execution": {
+    "command": "docker run --network none --name llm-agent-pub-4f4064c llm-agent-eval:publication-4f4064c",
+    "duration_seconds": 0.854818,
+    "exit_code": 0,
+    "repeat": 1,
+    "started_at": "2026-08-03T22:35:41.390195Z"
+  },
+  "metrics": [
+    {
+      "direction": "higher_is_better",
+      "failures": 0,
+      "name": "task_success_rate",
+      "samples": [
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "summary": {
+        "average_cost_usd": 0.00018,
+        "average_latency_ms": 124.525,
+        "malformed_trace_count": 0,
+        "measured_iterations": 4,
+        "p95_latency_ms": 231.7,
+        "task_count": 4,
+        "task_success_rate": 0.75,
+        "tool_selection_accuracy": 0.75,
+        "total_cost_usd": 0.00072
+      },
+      "unit": "ratio",
+      "value": 0.75
+    }
+  ],
+  "project": "llm-agent-eval",
+  "provenance": {
+    "artifact_digest": "sha256:c5f96476e341fe3227b4094ceb5a21defeb9c58d22e2252ae260e35df8211493",
+    "clean_tree": true,
+    "dependency_lock_digest": "sha256:5150977019231f9bac14f520a2533245120f78b7b0c1ac107a034329f9f40eba",
+    "image_digest": "sha256:14f70861fccf961f6d5e3b8e6cab6bc883cb6b9603cfde6f44120ff2fa6a7731",
+    "image_ref": "llm-agent-eval:publication-4f4064c@sha256:14f70861fccf961f6d5e3b8e6cab6bc883cb6b9603cfde6f44120ff2fa6a7731",
+    "producer": "local",
+    "source_commit": "4f4064cc8d1b18b5a16baf58003f99b3c9e53ecb"
+  },
+  "run_id": "aa1870ae-f354-4cc9-adc8-0d53a42badb8",
+  "schema_version": 2,
+  "workload": {
+    "concurrency": 1,
+    "config_digest": "sha256:924fdf3c362947e85afc7d55410de1d1819e52d817f8da21bfcbe6d2726421fe",
+    "fixture_digest": "sha256:f0c2175d8f9693ac3cfcdba1233b9a5083edaccf53899db2dcba199f5c6f13d8",
+    "measured_iterations": 4,
+    "version": "agent-traces-v1",
+    "warmup_iterations": 0
+  }
+}

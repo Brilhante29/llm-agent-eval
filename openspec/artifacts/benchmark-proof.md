@@ -7,7 +7,8 @@
 - Observed p95 latency: `231.7 ms`
 - Supplied total cost: `US$ 0.00072`
 - Samples: `4`
-- Result: `benchmarks/results/agent-eval-baseline.json`
+- Publication result: `benchmarks/publication/agent-eval-baseline-v2.json`
+- Raw result: `benchmarks/results/agent-eval-baseline.json`
 
 Command:
 
