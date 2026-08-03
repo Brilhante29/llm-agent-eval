@@ -16,6 +16,7 @@ Project: `9 - llm-agent-eval`
 | Finding | Classification | Kit Area | Action | Status |
 |---|---|---|---|---|
 | AI evaluation repos share publication provenance and a clean distinction between run repetitions and measured work. | `patch_now` | `contracts`, `validation` | Reuse V2 evidence tooling and report `repeat` separately from `measured_iterations`. | implemented |
+| A no-build-isolation CI install requires the Python build backend in the lock. | `patch_now` | `CI`, `dependency locks` | Pin `setuptools==80.9.0` and keep package installation offline from resolver drift. | implemented |
 | Project-specific fixture content should remain in each repo. | `reject` | `templates` | Keep domain examples local to preserve each repo's proof. | done |
 
 ## Patch Now Decisions
