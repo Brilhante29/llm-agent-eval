@@ -7,13 +7,14 @@ Project: `9 - llm-agent-eval`
 - The former rule router was removed.
 - The repository now evaluates supplied execution traces only.
 - Baseline: task success `0.75`, tool-selection accuracy `0.75`, average latency `124.525 ms`, total supplied cost `US$ 0.00072`.
-- Status is `benchmarked`; publication and remote CI evidence are not claimed.
+- Status is `benchmarked`; source gates are ready for V2 generation and remote CI.
 
 ## Contracts
 
 - Tasks: `data/fixtures/tasks.jsonl`
 - Traces: `data/fixtures/traces.jsonl`
-- Shared result: `benchmarks/results/agent-eval-baseline.json`
+- Shared raw result: `benchmarks/results/agent-eval-baseline.json`
+- Publication config: `benchmarks/config/agent-eval-baseline-v2.json`
 
 ## Continue Safely
 

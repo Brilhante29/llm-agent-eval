@@ -10,4 +10,5 @@
 - [x] Align README, SDD, OpenSpec, and project status.
 - [x] Verify the Docker build and container command.
 - [x] Strict OpenSpec delta validation passes.
-- [ ] Confirm remote CI after publication.
+- [ ] Generate V2 from the clean source commit.
+- [ ] Confirm exact-head CI after publication.

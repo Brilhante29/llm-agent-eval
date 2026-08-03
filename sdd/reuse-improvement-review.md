@@ -15,7 +15,7 @@ Project: `9 - llm-agent-eval`
 
 | Finding | Classification | Kit Area | Action | Status |
 |---|---|---|---|---|
-| AI evaluation repos share the same local-first Python benchmark skeleton: fixtures, CLI, Docker, tests, and JSON result. | `backlog` | `templates`, `validation` | Promote to a reusable Python benchmark template after this macro confirms all five shapes. | pending |
+| AI evaluation repos share publication provenance and a clean distinction between run repetitions and measured work. | `patch_now` | `contracts`, `validation` | Reuse V2 evidence tooling and report `repeat` separately from `measured_iterations`. | implemented |
 | Project-specific fixture content should remain in each repo. | `reject` | `templates` | Keep domain examples local to preserve each repo's proof. | done |
 
 ## Patch Now Decisions

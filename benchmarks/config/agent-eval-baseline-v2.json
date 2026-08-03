@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "benchmark_id": "offline-agent-trace-eval-v1",
+  "workload_version": "agent-traces-v1",
+  "tasks": "data/fixtures/tasks.jsonl",
+  "traces": "data/fixtures/traces.jsonl",
+  "measured_tasks": 4,
+  "concurrency": 1,
+  "comparability_key": "llm-agent-eval:task-success:offline-traces-v1:4-tasks"
+}
