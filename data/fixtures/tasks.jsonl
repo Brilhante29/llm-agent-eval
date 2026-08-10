@@ -2,3 +2,7 @@
 {"id":"t2","expected_output":"recall_at_k","expected_tool_calls":["retriever"]}
 {"id":"t3","expected_output":"75%","expected_tool_calls":["formatter"]}
 {"id":"t4","expected_output":"81","expected_tool_calls":["calculator"]}
+{"id":"t5","expected_output":"kumo","expected_tool_calls":["retriever"]}
+{"id":"t6","expected_output":"12.5%","expected_tool_calls":["formatter"]}
+{"id":"t7","expected_output":"12","expected_tool_calls":["calculator"]}
+{"id":"t8","expected_output":"outbox_pattern","expected_tool_calls":["retriever"]}

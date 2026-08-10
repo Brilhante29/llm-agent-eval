@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import os
 import platform
 import sys
 from collections.abc import Iterable
@@ -8,10 +9,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .runner import AgentRunError, OpenAICompatiblePlanner, run_agent
+
 
 DEFAULT_TASKS = "data/fixtures/tasks.jsonl"
 DEFAULT_TRACES = "data/fixtures/traces.jsonl"
 DEFAULT_OUTPUT = "benchmarks/results/agent-eval-baseline.json"
+DEFAULT_INPUTS = "data/fixtures/agent-inputs.jsonl"
+DEFAULT_PROVENANCE = "data/fixtures/traces.provenance.json"
 COMMAND = (
     "python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl "
     "--traces data/fixtures/traces.jsonl "
@@ -217,19 +222,32 @@ def evaluate(
     }
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
-        description="Evaluate supplied agent execution traces; this command does not run an agent."
+        description="Run a local tool-routing agent or evaluate provider-neutral traces."
     )
-    parser.add_argument("command", choices=["benchmark"], nargs="?", default="benchmark")
+    parser.add_argument("command", choices=["benchmark", "run-agent"], nargs="?", default="benchmark")
     parser.add_argument("--tasks", default=DEFAULT_TASKS)
     parser.add_argument("--traces", default=DEFAULT_TRACES)
     parser.add_argument("--output", default=DEFAULT_OUTPUT)
-    args = parser.parse_args()
+    parser.add_argument("--inputs", default=DEFAULT_INPUTS)
+    parser.add_argument("--provenance", default=DEFAULT_PROVENANCE)
+    args = parser.parse_args(argv)
     try:
+        if args.command == "run-agent":
+            result = run_agent(
+                planner=OpenAICompatiblePlanner.from_environment(),
+                inputs_path=args.inputs,
+                traces_path=args.traces,
+                provenance_path=args.provenance,
+                producer_source_commit=os.environ.get("AGENT_PRODUCER_SOURCE_COMMIT", "unverified"),
+                producer_image_digest=os.environ.get("AGENT_PRODUCER_IMAGE_DIGEST", "unverified"),
+            )
+            print(json.dumps(result, indent=2))
+            return
         result = evaluate(args.tasks, args.traces)
-    except (OSError, TraceValidationError) as exc:
-        print(f"evaluation failed: {exc}", file=sys.stderr)
+    except (OSError, TraceValidationError, AgentRunError) as exc:
+        print(f"{args.command} failed: {exc}", file=sys.stderr)
         raise SystemExit(2) from exc
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

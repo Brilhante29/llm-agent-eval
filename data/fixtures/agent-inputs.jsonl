@@ -1,0 +1,8 @@
+{"id":"t1","instruction":"Calculate 19 + 23."}
+{"id":"t2","instruction":"Look up the retrieval metric that checks whether relevant documents appear among the top results."}
+{"id":"t3","instruction":"Format the decimal 0.75 as a percentage."}
+{"id":"t4","instruction":"Calculate 9 * 9."}
+{"id":"t5","instruction":"Look up the local cloud emulator used as an AWS-compatible alternative."}
+{"id":"t6","instruction":"Format the decimal 0.125 as a percentage."}
+{"id":"t7","instruction":"Calculate 144 / 12."}
+{"id":"t8","instruction":"Look up the transactional pattern that prevents event loss when publishing database changes."}
