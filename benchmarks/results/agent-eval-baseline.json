@@ -1,31 +1,35 @@
 {
   "project": "llm-agent-eval",
   "metric": "task_success_rate",
-  "value": 0.75,
+  "value": 0.625,
   "unit": "ratio",
-  "timestamp": "2026-08-03T22:35:42.115312Z",
+  "timestamp": "2026-08-10T01:27:00.266772Z",
   "command": "python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json",
   "repeat": 1,
-  "measured_iterations": 4,
+  "measured_iterations": 8,
   "samples": [
+    0.0,
     1.0,
     1.0,
     0.0,
-    1.0
+    1.0,
+    1.0,
+    1.0,
+    0.0
   ],
   "summary": {
-    "task_count": 4,
-    "measured_iterations": 4,
-    "task_success_rate": 0.75,
-    "tool_selection_accuracy": 0.75,
-    "average_latency_ms": 124.525,
-    "p95_latency_ms": 231.7,
-    "total_cost_usd": 0.00072,
-    "average_cost_usd": 0.00018,
+    "task_count": 8,
+    "measured_iterations": 8,
+    "task_success_rate": 0.625,
+    "tool_selection_accuracy": 0.875,
+    "average_latency_ms": 986.4655,
+    "p95_latency_ms": 3006.9626,
+    "total_cost_usd": 0.0,
+    "average_cost_usd": 0.0,
     "malformed_trace_count": 0
   },
   "environment": {
-    "runtime": "python-3.12.13",
+    "runtime": "python-3.10.11",
     "mode": "offline-supplied-trace-evaluation",
     "tasks_source": "data/fixtures/tasks.jsonl",
     "traces_source": "data/fixtures/traces.jsonl"
@@ -33,7 +37,7 @@
   "tasks": [
     {
       "task_id": "t1",
-      "outcome_success": true,
+      "outcome_success": false,
       "tool_selection_success": true,
       "expected_tool_calls": [
         "calculator"
@@ -41,25 +45,25 @@
       "observed_tool_calls": [
         "calculator"
       ],
-      "latency_ms": 84.2,
-      "cost_usd": 0.00012
+      "latency_ms": 3006.962565,
+      "cost_usd": 0.0
     },
     {
       "task_id": "t2",
       "outcome_success": true,
-      "tool_selection_success": false,
+      "tool_selection_success": true,
       "expected_tool_calls": [
         "retriever"
       ],
       "observed_tool_calls": [
-        "search"
+        "retriever"
       ],
-      "latency_ms": 231.7,
-      "cost_usd": 0.00031
+      "latency_ms": 647.242949,
+      "cost_usd": 0.0
     },
     {
       "task_id": "t3",
-      "outcome_success": false,
+      "outcome_success": true,
       "tool_selection_success": true,
       "expected_tool_calls": [
         "formatter"
@@ -67,11 +71,50 @@
       "observed_tool_calls": [
         "formatter"
       ],
-      "latency_ms": 102.4,
-      "cost_usd": 0.00018
+      "latency_ms": 579.688816,
+      "cost_usd": 0.0
     },
     {
       "task_id": "t4",
+      "outcome_success": false,
+      "tool_selection_success": true,
+      "expected_tool_calls": [
+        "calculator"
+      ],
+      "observed_tool_calls": [
+        "calculator"
+      ],
+      "latency_ms": 509.129066,
+      "cost_usd": 0.0
+    },
+    {
+      "task_id": "t5",
+      "outcome_success": true,
+      "tool_selection_success": true,
+      "expected_tool_calls": [
+        "retriever"
+      ],
+      "observed_tool_calls": [
+        "retriever"
+      ],
+      "latency_ms": 614.692435,
+      "cost_usd": 0.0
+    },
+    {
+      "task_id": "t6",
+      "outcome_success": true,
+      "tool_selection_success": true,
+      "expected_tool_calls": [
+        "formatter"
+      ],
+      "observed_tool_calls": [
+        "formatter"
+      ],
+      "latency_ms": 597.717783,
+      "cost_usd": 0.0
+    },
+    {
+      "task_id": "t7",
       "outcome_success": true,
       "tool_selection_success": true,
       "expected_tool_calls": [
@@ -80,8 +123,19 @@
       "observed_tool_calls": [
         "calculator"
       ],
-      "latency_ms": 79.8,
-      "cost_usd": 0.00011
+      "latency_ms": 610.71831,
+      "cost_usd": 0.0
+    },
+    {
+      "task_id": "t8",
+      "outcome_success": false,
+      "tool_selection_success": false,
+      "expected_tool_calls": [
+        "retriever"
+      ],
+      "observed_tool_calls": [],
+      "latency_ms": 1325.572155,
+      "cost_usd": 0.0
     }
   ]
 }

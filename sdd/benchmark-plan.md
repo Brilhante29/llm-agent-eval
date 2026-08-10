@@ -1,11 +1,9 @@
 # Benchmark Plan
 
-Primary metric: `task_success_rate`.
+Primary metric: `task_success_rate`. Secondary metrics: ordered tool-selection accuracy, observed mean/p95 latency, and token tariff cost.
 
-Secondary evidence: ordered tool-selection accuracy, observed average and p95 latency, and observed total and average cost.
+Eight instructions cover calculator, retrieval, and formatting routes. A pinned local model plans once per task; the selected bounded tool produces the final output. Hidden task records define expected output and ordered tool calls.
 
-```powershell
-python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json
-```
+The committed run measured `0.625` task success and `0.875` tool accuracy. One malformed decision and two tool execution failures remain visible. One process run is `repeat=1`; workload size is `measured_iterations=8`.
 
-The benchmark evaluates four committed task/trace pairs. Outcome and tool metrics are binary per task. One process run is `repeat = 1`; workload size is `measured_iterations = 4`. Latency and cost are copied from supplied telemetry and are not measured or estimated by the evaluator. Invalid evidence fails before a result is written.
+The V2 wrapper binds the offline evaluation to a clean commit, exact Docker image, complete fixtures, config, and validation lock. Agent trace provenance separately binds the producing model, source/image, tokens, latency, failures, and artifact hashes.

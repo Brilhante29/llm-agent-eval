@@ -2,9 +2,17 @@
 
 ## ADDED Requirements
 
-### Requirement: supplied trace evaluation
+### Requirement: real agent execution and trace evaluation
 
-The system SHALL evaluate supplied traces and SHALL NOT implement an agent or router as the subject under test.
+The system SHALL run a planner through a replaceable OpenAI-compatible port, execute only bounded tools, emit observed traces, and evaluate those traces independently.
+
+#### Scenario: local tool-routing graph
+
+- GIVEN a pinned local model and one task instruction
+- WHEN the graph runs
+- THEN the planner emits a strict tool decision
+- AND the selected bounded tool executes without shell access
+- AND model, source, image, tokens, latency, failures, and artifacts are recorded.
 
 #### Scenario: complete trace set
 

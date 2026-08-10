@@ -71,10 +71,10 @@ class AgentEvalTests(unittest.TestCase):
         self.assertTrue(required.issubset(result))
         self.assertEqual(result["metric"], "task_success_rate")
         self.assertEqual(result["summary"]["task_count"], 8)
-        self.assertEqual(result["value"], 1.0)
+        self.assertEqual(result["value"], 0.625)
         self.assertEqual(result["repeat"], 1)
         self.assertEqual(result["measured_iterations"], 8)
-        self.assertEqual(result["summary"]["tool_selection_accuracy"], 1.0)
+        self.assertEqual(result["summary"]["tool_selection_accuracy"], 0.875)
 
     def test_rejects_missing_trace_fields(self):
         tasks = self.write_jsonl(

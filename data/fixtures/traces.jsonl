@@ -1,8 +1,8 @@
-{"task_id":"t1","output":"42","tool_calls":[{"name":"calculator"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t2","output":"recall_at_k","tool_calls":[{"name":"retriever"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t3","output":"75%","tool_calls":[{"name":"formatter"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t4","output":"81","tool_calls":[{"name":"calculator"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t5","output":"kumo","tool_calls":[{"name":"retriever"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t6","output":"12.5%","tool_calls":[{"name":"formatter"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t7","output":"12","tool_calls":[{"name":"calculator"}],"latency_ms":1,"cost_usd":0}
-{"task_id":"t8","output":"outbox_pattern","tool_calls":[{"name":"retriever"}],"latency_ms":1,"cost_usd":0}
+{"task_id":"t1","output":"","tool_calls":[{"name":"calculator"}],"latency_ms":3006.962565,"cost_usd":0.0}
+{"task_id":"t2","output":"recall_at_k","tool_calls":[{"name":"retriever"}],"latency_ms":647.242949,"cost_usd":0.0}
+{"task_id":"t3","output":"75%","tool_calls":[{"name":"formatter"}],"latency_ms":579.688816,"cost_usd":0.0}
+{"task_id":"t4","output":"","tool_calls":[{"name":"calculator"}],"latency_ms":509.129066,"cost_usd":0.0}
+{"task_id":"t5","output":"kumo","tool_calls":[{"name":"retriever"}],"latency_ms":614.692435,"cost_usd":0.0}
+{"task_id":"t6","output":"12.5%","tool_calls":[{"name":"formatter"}],"latency_ms":597.717783,"cost_usd":0.0}
+{"task_id":"t7","output":"12","tool_calls":[{"name":"calculator"}],"latency_ms":610.71831,"cost_usd":0.0}
+{"task_id":"t8","output":"","tool_calls":[],"latency_ms":1325.572155,"cost_usd":0.0}

@@ -1,19 +1,11 @@
 # Benchmark Proof: llm-agent-eval
 
-- Metric: `task_success_rate`
-- Value: `0.75`
-- Tool-selection accuracy: `0.75`
-- Observed average latency: `124.525 ms`
-- Observed p95 latency: `231.7 ms`
-- Supplied total cost: `US$ 0.00072`
-- Samples: `4`
-- Publication result: `benchmarks/publication/agent-eval-baseline-v2.json`
-- Raw result: `benchmarks/results/agent-eval-baseline.json`
+- Task success: `0.625` (`5/8`)
+- Tool-selection accuracy: `0.875` (`7/8`)
+- Mean / p95 latency: `986.4655 / 3006.9626 ms`
+- Decision / tool failures: `1 / 2`
+- Prompt / completion tokens: `583 / 139`
+- Local token tariff: `US$0.00`
+- Model: pinned `qwen2.5-coder:0.5b`
 
-Command:
-
-```powershell
-python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json
-```
-
-The telemetry is supplied evidence. The evaluator does not execute an agent or measure provider billing.
+These are observed traces from a real local planner and bounded tool graph, not hand-authored telemetry.

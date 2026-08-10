@@ -2,16 +2,18 @@ id: 9
 name: llm-agent-eval
 program:
   id: ai-evaluation-retrieval
-  narrative_fit: Evaluates execution evidence produced by agents in the AI Evaluation and RAG Platform.
+  narrative_fit: Runs and evaluates a local tool-routing agent inside the AI Evaluation and RAG Platform.
   shared_assets:
     - execution trace contract
     - strict local evaluator
     - portfolio-compatible benchmark result
 status: published
-claim: Offline harness that scores supplied agent traces against expected outcomes and tool calls while aggregating observed latency and cost.
+claim: Local-first tool-routing agent and offline harness with pinned model provenance, observed tool calls, latency, and cost.
 stack:
   - python
   - jsonl
+  - ollama
+  - openai-compatible-http
   - unittest
   - docker
 language_profile:
@@ -29,26 +31,26 @@ decision_brain:
     review_path: sdd/reuse-improvement-review.md
     current_status: backlog_recorded
   principles:
-    coupling_rule: Evaluation accepts provider-neutral task and trace records and never imports an agent runtime.
+    coupling_rule: The planner adapter emits provider-neutral traces; evaluation never imports model transport or tool execution.
     solid: [srp, ocp, lsp, isp, dip]
-    simplicity_rule: Score supplied evidence; do not embed a fake router or provider.
-    testability_rule: Tests use temporary JSONL records and require no network or credentials.
+    simplicity_rule: Use one planner step and bounded tools; failures remain visible without fallback answers.
+    testability_rule: Tests replace HTTP transport and use temporary JSONL records without network or credentials.
   stack_profile: python
   api_style: cli-first
   messaging: none
   cloud:
-    mode: none
-    local_provider: kumo
-    real_provider_target: none
-    adapter_rule: Agent runtimes export the trace contract instead of entering the scoring core.
+    mode: local-first-pluggable
+    local_provider: ollama
+    real_provider_target: openai-compatible-endpoint
+    adapter_rule: Planner runtimes export the trace contract instead of entering the scoring core.
   database: fixture-files
   runtime: python-cli
-  library_policy: Use the standard library for the local benchmark; provider SDKs belong in external trace producers.
+  library_policy: Use standard-library HTTP and bounded in-process tools; provider SDKs do not enter the core.
   record_path: sdd/technical-decision.md
 architecture:
   style: functional-core-imperative-shell
-  reason: Validation and scoring are pure policies around file-based input/output adapters.
-  dependency_rule: The evaluator never executes an agent or imports provider, cloud, transport, or billing SDKs.
+  reason: Agent execution is an imperative graph; validation and scoring remain pure policies around trace files.
+  dependency_rule: The planner depends on an OpenAI-compatible port; tools and evaluator do not depend on the provider.
 design_system:
   tokens: .portfolio/design-system/tokens.yaml
   readme_components: [readme_header, benchmark_card, architecture_card, references_table]

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-10T01:26:52.569796Z",
+  "graph": [
+    "planner_model",
+    "tool_executor",
+    "trace_evaluator"
+  ],
+  "provider": {
+    "id": "ollama-local",
+    "interface": "openai-compatible-chat-completions",
+    "model": "qwen2.5-coder:0.5b",
+    "model_digest": "sha256:4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+  },
+  "producer": {
+    "source_commit": "4408cc0b12400cd3ca11002605f4997bb05211f0",
+    "image_digest": "sha256:438430143c275656fb73d54fb5c80d0a1f61839ff7b626c090861ba1e3dba43f"
+  },
+  "execution": {
+    "measured_tasks": 8,
+    "decision_failures": 1,
+    "tool_failures": 2,
+    "prompt_tokens": 583,
+    "completion_tokens": 139,
+    "latency_ms": {
+      "mean": 986.46551,
+      "p95": 3006.962565
+    },
+    "cost_usd": 0.0
+  },
+  "artifacts": {
+    "inputs_sha256": "sha256:7270e4c3c50f6e2d287ab2b337d04eadabb8aeec047dbc90b520c721089e10b5",
+    "traces_sha256": "sha256:d9dd897b64988afb3cf7a945bb5a95095c755c2e82fe10e48805594563821070"
+  }
+}
