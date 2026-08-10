@@ -3,7 +3,7 @@
   "metric": "task_success_rate",
   "value": 0.625,
   "unit": "ratio",
-  "timestamp": "2026-08-10T01:27:00.266772Z",
+  "timestamp": "2026-08-10T01:31:10.941242Z",
   "command": "python -m llm_agent_eval benchmark --tasks data/fixtures/tasks.jsonl --traces data/fixtures/traces.jsonl --output benchmarks/results/agent-eval-baseline.json",
   "repeat": 1,
   "measured_iterations": 8,
@@ -29,7 +29,7 @@
     "malformed_trace_count": 0
   },
   "environment": {
-    "runtime": "python-3.10.11",
+    "runtime": "python-3.12.13",
     "mode": "offline-supplied-trace-evaluation",
     "tasks_source": "data/fixtures/tasks.jsonl",
     "traces_source": "data/fixtures/traces.jsonl"
